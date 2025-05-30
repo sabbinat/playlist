@@ -12,11 +12,14 @@ dependencies:
     
   http: ^1.2.0
   just_audio: ^0.9.36
+  just_audio_background: ^0.0.1-beta.10
+  audio_service: ^0.18.10
   audio_session: ^0.1.16
   provider: ^6.1.2
-
-  # Para fondo (será usado en la Parte 2)
-  flutter_background_service: ^5.0.5
+  path_provider: ^2.0.12
+  permission_handler: ^12.0.0+1
+  flutter_background_service: ^5.1.0
+  flutter_background_service_android: ^6.3.0
   flutter_local_notifications: ^17.1.0
   # Íconos Cupertino por compatibilidad
   cupertino_icons: ^1.0.6

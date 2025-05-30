@@ -5,19 +5,17 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <!-- Permiso para escribir en almacenamiento (si tu app necesita guardar archivos) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
-
     <application
         android:label="playlist"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.playlist.MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
@@ -37,25 +35,13 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-    
 
-        <!-- Para audio_service -->
-        <service android:name="androidx.media.MediaBrowserServiceCompat"
-                android:exported="true">
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService" />
-            </intent-filter>
-        </service>
 
-    
-        <service android:name="com.ryanheise.audioservice.AudioService"
-                 android:exported="false"/>
-
-        <!-- Service para workmanager -->
         <service
-            android:name="be.tramckrijte.workmanager.BackgroundWorker"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="false" />
+            android:name="com.ryanheise.audioservice.AudioService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback" />
+
 
         <!-- Requerido para notificaciones -->
         <receiver
